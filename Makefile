@@ -9,6 +9,10 @@ build/udpserver: udpserver.c
 	mkdir -p build
 	$(CC) udpserver.c -o build/udpserver
 
+# Try to look up google.com
+test: build/udpserver
+	dig google.com @127.0.0.1 -p 7777
+
 # Blow everything away in one go
 clean:
 	rm -rf build
