@@ -11,7 +11,10 @@ build/udpserver: udpserver.c
 
 # Try to look up google.com
 test: build/udpserver
+	./build/udpserver &
 	dig google.com @127.0.0.1 -p 7777
+	pkill udpserver
+
 
 # Blow everything away in one go
 clean:
